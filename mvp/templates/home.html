@@ -10,7 +10,6 @@
 .navbar-static-top {
 	margin-bottom: 0px !important;
 }
-
 .jumbotron {
 	background-color:#0E3D14;
 	color: #FFF;
@@ -19,28 +18,27 @@
 {% endblock %}
 </style>
 
-
-     
 {% block jumbotron %}
- {% if not request.user.is_authenticated %}
 
-<div class="jumbotron">
- <div class="container">
-	<div class="row">
-		<div class='col-sm-6'>
-			<h1>MVP</h1>
-			<p>The MVP Landing project is designed to get your project started. The goal is to help you launch as soon as possible with the least amount of investment using time or money. Join Us today.</p>
-			<p>
-				<a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
-			</p>
-		</div>
-		<div class='col-sm-6' >
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/CfeRThEQFFE" frameborder="0" allowfullscreen></iframe>
-		</div>
+{% if not request.user.is_authenticated %}
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class='col-sm-6'>
+					<h1>MVP</h1>
+					<p>The MVP Landing project is designed to get your project started. The goal is to help you launch as soon as possible with the least amount of investment using time or money. Join Us today.</p>
+					<p>
+						<a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+					</p>
+				</div>
+				<div class='col-sm-6' >
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/CfeRThEQFFE" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
 		</div>
 	</div>
- </div>
- {% endif %}
+{% endif %}
+
 {% endblock %}
 
 
@@ -63,19 +61,14 @@
 
  	{% else %}
  	-->
-		<div class="row">
+<div class="row">
 
-  		<div class="col-sm-3 pull-right">
-  	
-			<p class='lead text-align-center'>{{ title }}</p>
-
-			<form method='POST' action=''>{% csrf_token %}
-			{{ form|crispy }}
-
-				<input class='btn btn-primary' type='submit' value='Sign Up' />
-
-			</form>
-		</div>
+  	<div class="col-sm-3 pull-right">
+  		<p class='lead text-align-center'>{{ title }}</p>
+		<form method='POST' action=''>{% csrf_token %}{{ form|crispy }}
+			<input class='btn btn-primary' type='submit' value='Sign Up' />
+		</form>
+	</div>
 
 	<div class='col-sm-3'>
 		<p class='lead text-align-center'>Django &amp; Bootstrap</p>
@@ -102,6 +95,6 @@
 	</div>
 
 </div>
-{% endif %}
+<!--{% endif %} -->
 
 {% endblock %}
