@@ -3,19 +3,17 @@
 
 {% block content %}
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3">
+	<div class="col-sm-6 col-sm-offset-3">
 
-    {% if title %}
-      <h1 class="text-align-center">{{ title }}</h1> 
-    {% endif %}
+		{% if title %}
+			<h1 class="text-align-center">{{ title }}</h1> 
+		{% endif %}
 
-    <form method="POST" action="">{% csrf_token %}
-      {{ form|crispy }}
-
-      <input class="btn btn-default" type="submit" value="Submit" />
-
-    </form>
+		<form method="POST" action="">{% csrf_token %}
+			{{ form|crispy }}
+			<input class="btn btn-default" type="submit" value="Submit" />
+		</form>
   
-  </div>
+	</div>
 </div>
 {% endblock %}
