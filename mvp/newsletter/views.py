@@ -11,7 +11,7 @@ def home(request):
 	form = SignUpForm(request.POST or None)
 	context = {
 		"title": title,
-		"form": form
+		"form": form,
 	}
 	if form.is_valid():
 		#form.save()
@@ -62,19 +62,21 @@ def contact(request):
 		subject = 'Site contact form'
 		from_email = settings.EMAIL_HOST_USER
 		to_email = [from_email, 'youotheremail@email.com']
-		contact_message = "%s: %s via %s"%( 
+		contact_message = "%s: %s via %s" %( 
 				form_full_name, 
 				form_message, 
-				form_email)
+				form_email
+				)
 		some_html_message = """
 		<h1>hello</h1>
 		"""
-		send_mail(subject, 
+		send_mail( subject, 
 				contact_message, 
 				from_email, 
 				to_email, 
 				html_message=some_html_message,
-				fail_silently=True)
+				fail_silently=True
+				)
 
 	context = {
 		"form": form,
