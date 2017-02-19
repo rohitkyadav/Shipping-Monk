@@ -1,100 +1,182 @@
-{% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 
+<head>
+	<title>Shipping Monk</title>
+  
+	<meta charset="utf-8"/>
+	<meta name="description" content="Shopping Monk is a free, easy way to find the best general 
+  	solutions to your delivery.""/>
 
-{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
 
-<style>
-{% block style %}
-.navbar-static-top {
-	margin-bottom: 0px !important;
-}
-.jumbotron {
-	background-color:#0E3D14;
-	color: #FFF;
-}
+	<script src="https://use.fontawesome.com/e5ed662be5.js"></script>
 
-{% endblock %}
-</style>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 
-{% block jumbotron %}
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-{% if not request.user.is_authenticated %}
-	<div class="jumbotron">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+	<style type="text/css">
+
+		.btn-primary {
+			margin-left: 30%;
+		}
+
+		.para {
+			text-align: justify;
+			font-style: italic;
+			color: black;
+			width: 100%;
+			font-family: 'Roboto Condensed', sans-serif;
+    	}
+    
+    	.head {
+			font-size: 20px;
+			font-weight: bold;
+			font-stretch: ultra-condensed;
+			padding-bottom:20px;
+    	}
+    
+    	.col-sm-1 {
+			padding-top:22px;
+    	}
+    
+    	#heading {
+			padding-bottom: 20px;
+			padding-top:20px;
+			font-family: serif;
+    	}
+    
+    	.row.wtf {
+			padding-top: 40px;
+			padding-bottom: 20px;
+    	}
+
+	</style>
+</head>
+
+{% include "navbar.html" %}
+
+<body>
+	<div class="jumbotron" style="background-color:gainsboro;">
 		<div class="container">
 			<div class="row">
 				<div class='col-sm-6'>
-					<h1>MVP</h1>
-					<p>The MVP Landing project is designed to get your project started. The goal is to help you launch as soon as possible with the least amount of investment using time or money. Join Us today.</p>
+					<h2 style="font-size:50px;">Shipping Monk</h2>
+					<p style="font-size:17px; text-align:justify">Shipping Monk is a platform for the users of the 21 century with a goal to reduce the shipment delays and product unavailability.</p>
+					<p style="font-size:17px; text-align:justify">Thus follows a tag line of "dont miss it just ship it."</p>
+					<p style="font-size:17px; text-align:justify">This is done by creating hubs around certain parts of the city where a user can store their product if they are not around or the product is not available in his locality but is present nearest to his hub.	</p>
 					<p>
-						<a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+						<a class="btn btn-lg btn-primary" href="" role="button">Contact Us &raquo;</a>
 					</p>
 				</div>
 				<div class='col-sm-6' >
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/CfeRThEQFFE" frameborder="0" allowfullscreen></iframe>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/21KydWM3g2g" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
 	</div>
-{% endif %}
 
-{% endblock %}
+	<div class = "container">
+		<h2 id = "heading" style="text-align:center;">Reasons To Choose Shipping Monk </h2>
+		<div class ="row wtf">
+
+			<div class = "col-sm-1">
+				<img src="{% static 'img/ICON/Single.png' %}">
+			</div>
+
+			<div class = "col-sm-3">
+				<h3 class = "head">
+					SINGLE PERSON CONTACT
+				</h3>
+
+				<p class = "para">
+				Shipment delays is a frustrating job both for the company and the user. With Shipping Monk, you leave all the hard-work and management to us. We will handle all the major and minor work that comes along with the process.
+				</p>
+			</div>
+
+			<div class = "col-sm-1 icon">
+				<img src="{% static 'img/ICON/Price.png' %}">
+			</div>
+
+			<div class = "col-sm-3">
+				<h3 class = "head">
+					BEST PRICE
+				</h3>
+
+				<p class = "para">
+				We give our clients products that are shipped just as it. Our contacts in the field enable us to get the untampered product for less price than any logistic company would get for a single shipment which minimizes the cost at every step.
+				</p>
+			</div>
+
+			<div class = "col-sm-1 icon">
+				<img src="{% static 'img/ICON/House.png' %}">
+			</div>
+
+			<div class = "col-sm-3">
+				<h3 class = "head">
+					SAFE HOUSE
+				</h3>
+
+				<p class = "para">
+				We provide the safest place that a user wants to submit his product for safe keeping. The place is safe and secure from whic the user can retrive his product unharmed.
+				</p>
+			</div>
+		</div>
+
+		<div class ="row wtf" style="padding-bottom:35px;">
+
+			<div class = "col-sm-1 icon">
+				<img src="{% static 'img/ICON/Delivery.png' %}">
+			</div>
+
+			<div class = "col-sm-3">
+				<h3 class = "head">
+					ON TIME DELIVERY
+				</h3>
+
+				<p class = "para">
+				Poor management can make you feel shipping delays as a never ending trip. At Shipping MOnk, we design a perfectly well structured plan to complete your shippment delays on time and within your budget.
+				</p>
+			</div>
+
+			<div class = "col-sm-1 icon">
+				<img src="{% static 'img/ICON/Swag.png' %}">
+			</div>
 
 
-{% block content %}
-	<!--{% if request.user.is_authenticated %}
-		<h1>You are logged in!</h1>
+			<div class = "col-sm-3">
+				<h3 class = "head">
+					I WANT IT ATTITUDE
+				</h3>
 
-	{% if queryset %}
-		<h2>Welcome Staff</h2>
-		<table class='table'>
-			{% for instance in queryset %}
-				<tr><td>{{ forloop.counter }}</td><td>{{ instance.email }}</td><td>{{ instance.full_name }}</td><td>{{ instance.timestamp|timesince }} ago</td></tr>
-				{% if instance.email == "abc@gmail.edu" %}
-					<tr><td>is equal</td></tr>
-				{% endif %}
-			{% endfor %}
-		</table>
+				<p class = "para">
+				We at Shipping Monk belive every product can be delivered to you so by setting up hubs around various parts of city thus we connect every product to every user that wants it when he wants it. 
+				</p> 
+			</div>
 
-	{% endif %}
+			<div class = "col-sm-1 icon">
+				<img src="{% static 'img/ICON/Assured.png' %}">
+			</div>
 
- 	{% else %}
- 	-->
-<div class="row">
-
-  	<div class="col-sm-3 pull-right">
-  		<p class='lead text-align-center'>{{ title }}</p>
-		<form method='POST' action=''>{% csrf_token %}{{ form|crispy }}
-			<input class='btn btn-primary' type='submit' value='Sign Up' />
-		</form>
+			<div class = "col-sm-3">
+				<h3 class = "head">
+					MAINTAINANCE CONTRACT
+				</h3>
+					Shipping Monk's team is dedicated to provide excellence in shipment every time you choose our hub over other conatiner places. Should you experience a problem or need assistance our team is ready to assist, no matter how small the issue is!
+				<p class = "para">
+				
+				</p>
+			</div>
+		</div>
 	</div>
+</body>
 
-	<div class='col-sm-3'>
-		<p class='lead text-align-center'>Django &amp; Bootstrap</p>
-		<img src='{% static "img/marketing4.jpg" %}' class='img-responsive' />
-	</div>
-
-	<div class='col-sm-3'>
-		<p class='lead text-align-center'>Created for Starters <br/>
-			<span class='fa-stack fa-lg fa-4x'>
-				<i class='fa fa-comment-o fa-stack-2x'></i>
-				<i style='color:yellow;' class="fa fa-bolt fa-stack-1x"></i>
-			</span>
-		</p>
-	</div>
-
-	<div class='col-sm-3'>
-		<p class='lead text-align-center'>Always Open Source <br/><br/>
-			<span class="fa-stack fa-lg fa-4x">
-				<i class="fa fa-circle-o-notch fa-stack-2x"></i>
-  				<!-- <i class="fa fa-square-o fa-stack-2x"></i> -->
-  				<i class="fa fa-github fa-stack-1x"></i>
-			</span>
-		</p>
-	</div>
-
-</div>
-<!--{% endif %} -->
-
-{% endblock %}

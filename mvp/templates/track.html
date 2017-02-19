@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href= {% static "css/bootstrap.min.css" %} rel="stylesheet">
+  <link href= {% static "css/main.css" %} rel="stylesheet">
+  <script src= {% static "js/bootstrap.min.js" %}></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/636a3ae5ba.js"></script>
+
+</head>
+
+{% include "navbar.html" %}
+
+<body>
+
+  <div class="container-fluid text-center">    
+    <div class="col-offset-1">
+      <a href="#"><button type="button" class="bullet action">Find Hub</button></a>
+      <button type="button" class="bullet" action="#">Track Order</button>
+    </div>
+  </div>
+  
+
+                
+  <footer class="footer">
+    <h4 style="text-align: center;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by our team</h4>
+  </footer>
+
+  <script>
+    $(function(){
+      $('form.uniForm').uniform();
+    });
+  </script>
+
+</body>
+</html>
+

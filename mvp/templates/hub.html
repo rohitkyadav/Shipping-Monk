@@ -1,0 +1,67 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href= {% static "css/bootstrap.min.css" %} rel="stylesheet">
+  <link href= {% static "css/main.css" %} rel="stylesheet">
+  <script src= {% static "js/bootstrap.min.js" %}></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/636a3ae5ba.js"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+        <img style="width:210px; height:45px; margin-top:-7px;" src={% static "img/logo.png" %} >
+      </a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><font size="+1.7">About Us</font></a></li>
+        <li><a href="#"><font size="+1.7">Contact Us</font></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div>
+<br>
+<br>
+<br>
+<div class="container-fluid text-center">    
+  <div class="col-offset-1">
+  <form method="POST" action="">{% csrf_token %}
+      {{ renderform | crispy}}
+
+    <input type="submit" value="Submit"/>
+
+  </form>
+
+</div>
+</div>
+
+</div>
+                
+<footer class="footer">
+  <h4 style="text-align: center;">Made with <i class="fa fa-heart" aria-hidden="true"></i> by our team</h4>
+</footer>
+</body>
+</html>
+
+<script>
+  $(function(){
+    $('form.uniForm').uniform();
+  });
+</script>

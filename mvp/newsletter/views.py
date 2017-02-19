@@ -85,17 +85,30 @@ def contact(request):
 	}
 	return render(request, "forms.html", context)
 
+def ContactUs(request):
+	return render(request, "contact.html", {})
 
 
+def hub(request):
+	if request.method == 'POST':
+		form = orderDetailForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit = False)
+			post.save()
+			return HttpResponseRedirect('home')
+	else:
+		renderform = orderDetailForm()
+		return render(request,'hub.html',{'renderform':renderform})
 
 
+def search(request):
+	if request.method == 'POST':
+		query = request.POST.get('q')
+		shops = orderDetail.objects.all()
+		return render(request,'search.html')
+	else:
+		return render(request,'search.html')
 
 
-
-
-
-
-
-
-
-
+def track(request):
+	return render(request,'track.html')
