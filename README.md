@@ -1,4 +1,4 @@
-#Shiping Monk 
+#Shipping Monk 
 
 Shipping Monk is a platform for the users of the 21 century with a goal to reduce the shipment delays and product unavailability.
 Thus follows a tag line of "dont miss it just ship it."
