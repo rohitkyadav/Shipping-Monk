@@ -2,92 +2,62 @@
 
 <head>
 	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<meta charset="utf-8"/>
+	<meta name="description" content="Shopping Monk is a free, easy way to find the best general 
+	solutions to your delivery." />
 
-  	<meta charset="utf-8"/>
-  	<meta name="description" content="Shopping Monk is a free, easy way to find the best general 
-  	solutions to your delivery." />
-  
-  	<link rel="shortcut icon" type="image/png" href="{%  static 'img/favicon.png' %}">
-  	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="shortcut icon" type="image/png" href="{%  static 'img/favicon.png' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
 	<style>
-
 		.navbar-static-top {
 			margin-bottom: 19px;
-			
 			margin-bottom: 0px !important;
 		}	
-
-		/*.navbar-default .navbar-brand {
-			color: white;
-		}
-
-		.navbar-default .navbar-brand:hover {
-			color: white;
-		}
-
-		.navbar-default .navbar-nav>li>a:hover {
-			color: white;
-		}
-
-		.navbar-default .navbar-toggle {
-			border-color: transparent !important;
-		}
-
-		.navbar-toggle:hover {
-			background-color: white !important;
-		}
-
-		.navbar-toggle {
-			background-color: white !important;
-		}*/
-		
 	</style>
 </head>
 
-<nav class="navbar navbar-default navbar-static-top" style="background-color: black;">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
+<body>
+	<nav class="navbar navbar-default navbar-static-top" style="background-color: black;">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 
-			<a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo2.png' %}" /></a>
-		</div>
+				<a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo2.png' %}" /></a>
+			</div>
 
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="{% url 'track' %}">Track and Find</a></li>
-			</ul>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{% url 'track' %}">Track and Find</a></li>
+				</ul>
 
-			<ul class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav navbar-right">
+					{% if request.user.is_authenticated %}
+						<li><a href="{% url 'auth_logout' %}">Logout</a></li>
+					{% else %}
+						<li><a href="{% url 'registration_register' %}">Register</a></li>
+					{% endif %}
+					<li><a href="{% url 'ContactUs' %}">Contact</a></li>
+				</ul>
 
-				{% if request.user.is_authenticated %}
-					<li><a href="{% url 'auth_logout' %}">Logout</a></li>
-				{% else %}
+				{% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
+					<form class="navbar-form navbar-right" method="POST" action="{% url 'auth_login' %}">{% csrf_token %}
+						<div class="form-group">
+							<input type="text" class="form-control" name="username" placeholder="Username" />
+						</div>
 
-					<li><a href="{% url 'registration_register' %}">Register</a></li>
+						<div class="form-group">
+							<input type="password" class="form-control" name="password" placeholder="Password" />
+						</div>
+						<button type="submit" class="btn btn-default">Login</button>
+					</form>
 				{% endif %}
-				<li><a href="{% url 'ContactUs' %}">Contact</a></li>
-			</ul>
-
-			{% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
-			
-				<form class="navbar-form navbar-right" method="POST" action="{% url 'auth_login' %}">{% csrf_token %}
-					<div class="form-group">
-						<input type="text" class="form-control" name="username" placeholder="Username" />
-					</div>
-
-					<div class="form-group">
-						<input type="password" class="form-control" name="password" placeholder="Password" />
-					</div>
-
-					<button type="submit" class="btn btn-default">Login</button>
-				</form>
-			{% endif %}
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
+</body>
